@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482c8557-4266-4eb7-8822-0286ed9a1d9a" name="Changes" comment="Added new functions to calculate a turns score and the game final score and various other changes.">
+    <list default="true" id="482c8557-4266-4eb7-8822-0286ed9a1d9a" name="Changes" comment="Added updatePreviousTurnResults function logic to determine whether the previous 2 turns ended with a strike or spare (WIP)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Bowling.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Bowling.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657911733086</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added updatePreviousTurnResults function logic to determine whether the previous 2 turns ended with a strike or spare (WIP)">
+      <created>1658488045046</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658488045046</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +204,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialised the Bowling project and added suggested test cases" />
     <MESSAGE value="Added new functions to calculate a turns score and the game final score and various other changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new functions to calculate a turns score and the game final score and various other changes." />
+    <MESSAGE value="Added updatePreviousTurnResults function logic to determine whether the previous 2 turns ended with a strike or spare (WIP)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added updatePreviousTurnResults function logic to determine whether the previous 2 turns ended with a strike or spare (WIP)" />
   </component>
 </project>

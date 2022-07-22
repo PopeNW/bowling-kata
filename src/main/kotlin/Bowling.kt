@@ -1,5 +1,6 @@
 data class TurnResult(
-    val score: Int,
+    var totalScore: Int,
+    val rollScores: List<Int>,
     val isSpare: Boolean,
     val isStrike: Boolean
 )
@@ -22,49 +23,59 @@ class Bowling {
     }
 
     private fun getTurnResult(turn: List<Any>): TurnResult {
-        var score = 0
+        val rollScores = mutableListOf<Int>()
         var isSpare = false
         var isStrike = false
 
-        for (roll in turn) {
+        turn.forEachIndexed { index, roll ->
             when (roll) {
                 // Strike
                 'X' -> {
-                    score += 10
+                    rollScores.add(index, 10)
                     isStrike = true
                 }
                 // Spare
                 '/' -> {
-                    score = 10
+                    when (index) {
+                        1 -> rollScores.add(index, 10 - rollScores[0])
+                        2 -> rollScores.add(index, 10 - rollScores[1])
+                    }
                     isSpare = true
                 }
                 // Pins knocked down
                 is Int -> {
-                    score += roll
+                    rollScores.add(index, roll)
                 }
                 // Miss
                 '-' -> {
-                    // no-op
+                    rollScores.add(index, 0)
                 }
             }
         }
 
-        return TurnResult(score = score, isSpare = isSpare, isStrike = isStrike)
+        return TurnResult(
+            totalScore = rollScores.sum(),
+            rollScores = rollScores,
+            isSpare = isSpare,
+            isStrike = isStrike
+        )
     }
 
     private fun updatePreviousTurnResults(turnResultsList: List<TurnResult>): MutableList<TurnResult> {
         val updatedTurnResults = turnResultsList as MutableList<TurnResult>
         updatedTurnResults.reversed().let { turnResults ->
-            val mostRecentResult = turnResults[0]
+            val latestResult = turnResults[0]
             if (turnResults.size > 1) {
                 val previousResult = turnResults[1]
                 if (previousResult.isSpare || previousResult.isStrike) {
+                    turnResults[1].totalScore += latestResult.totalScore
                     println("Previous result was a spare or strike")
                 }
             }
             if (turnResults.size > 2) {
                 val secondPreviousResult = turnResults[2]
                 if (secondPreviousResult.isStrike) {
+                    turnResults[2].totalScore += latestResult.totalScore
                     println("Second previous result was a strike")
                 }
             }
@@ -77,7 +88,7 @@ class Bowling {
         var totalScore = 0
 
         for (turnResult in turnResultsList) {
-            totalScore += turnResult.score
+            totalScore += turnResult.totalScore
         }
 
         return totalScore
