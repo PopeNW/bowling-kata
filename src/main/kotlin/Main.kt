@@ -16,7 +16,7 @@ fun main() {
             listOf('X', 'X', 'X')
         )
     )
-    println("First game score: $game1")
+    println("First game score: $game1\n")
 
     // 9- 9- 9- 9- 9- 9- 9- 9- 9- 9- (20 rolls: 10 pairs of 9 and miss) = 10 frames * 9 points = 90
     val game2 = bowling.game(
@@ -33,7 +33,7 @@ fun main() {
             listOf(9, '-')
         )
     )
-    println("Second game score: $game2")
+    println("Second game score: $game2\n")
 
     // 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5 (21 rolls: 10 pairs of 5 and spare, with a final 5) = 10 frames * 15 points = 150
     val game3 = bowling.game(
@@ -50,5 +50,21 @@ fun main() {
             listOf(5, '/', 5)
         )
     )
-    println("Third game score: $game3")
+    println("Third game score: $game3\n")
+
+    val game4 = bowling.game(
+        turns = listOf(
+            listOf(1, '/'),
+            listOf(2, '/'),
+            listOf(3, '/'),
+            listOf(4, '/'),
+            listOf(5, '/'),
+            listOf(6, '/'),
+            listOf(7, '/'),
+            listOf(8, 1),
+            listOf(9, '/'),
+            listOf('X', 3, 5)
+        )
+    )
+    println("Fourth game score: $game4\n")
 }

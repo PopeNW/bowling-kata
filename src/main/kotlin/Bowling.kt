@@ -15,6 +15,7 @@ class Bowling {
         for (turn in turns) {
             val turnResult = getTurnResult(turn = turn)
             turnResultsList.add(turnResult)
+            updatePreviousTurnResults(turnResultsList)
         }
 
         return calculateTotalGameScore(turnResultsList)
@@ -49,6 +50,27 @@ class Bowling {
         }
 
         return TurnResult(score = score, isSpare = isSpare, isStrike = isStrike)
+    }
+
+    private fun updatePreviousTurnResults(turnResultsList: List<TurnResult>): MutableList<TurnResult> {
+        val updatedTurnResults = turnResultsList as MutableList<TurnResult>
+        updatedTurnResults.reversed().let { turnResults ->
+            val mostRecentResult = turnResults[0]
+            if (turnResults.size > 1) {
+                val previousResult = turnResults[1]
+                if (previousResult.isSpare || previousResult.isStrike) {
+                    println("Previous result was a spare or strike")
+                }
+            }
+            if (turnResults.size > 2) {
+                val secondPreviousResult = turnResults[2]
+                if (secondPreviousResult.isStrike) {
+                    println("Second previous result was a strike")
+                }
+            }
+            println()
+        }
+        return updatedTurnResults
     }
 
     private fun calculateTotalGameScore(turnResultsList: List<TurnResult>): Int {
