@@ -39,7 +39,7 @@ class Bowling {
                     }
                     isSpare = true
                 }
-                // Pins knocked down
+                // Number of pins knocked down
                 is Int -> {
                     rollScores.add(index, roll)
                 }

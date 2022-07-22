@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482c8557-4266-4eb7-8822-0286ed9a1d9a" name="Changes" comment="Changed updatePreviousTurnResults function to use new logic for determining whether to update the totalScore for previous turns.&#10;&#10;- Added a isFinalScore boolean to the TurnResult data class which is used to indicate whether the final score for the turn has been calculated yet.&#10;- Added new checks to determine how many rolls were thrown in the previous turns to determine whether the second previous result throws need to be checked as well when calculating a strike turn score.">
+    <list default="true" id="482c8557-4266-4eb7-8822-0286ed9a1d9a" name="Changes" comment="Gave the tests more descriptive names">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Bowling.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Bowling.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/BowlingTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/BowlingTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,29 +95,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BowlingTest.12 strikes$Bowling_test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;BowlingTest.12 strikes$Bowling_test&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="BowlingTest.12 strikes" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -139,6 +118,29 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="BowlingTest.a strike score is calculated correctly when the latest turn has at least two rolls$Bowling_test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;BowlingTest.a strike score is calculated correctly when the latest turn has at least two rolls$Bowling_test&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
       <module name="Bowling.main" />
@@ -149,10 +151,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.BowlingTest (1)" />
+        <item itemvalue="Gradle.BowlingTest.a strike score is calculated correctly when the latest turn has at least two rolls$Bowling_test" />
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.BowlingTest.10 pairs of 9 and miss" />
         <item itemvalue="Gradle.BowlingTest.12 strikes" />
-        <item itemvalue="Gradle.BowlingTest.12 strikes$Bowling_test" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658497518933</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Gave the tests more descriptive names">
+      <created>1658497772706</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1658497772706</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,6 +229,7 @@
     <MESSAGE value="Added updatePreviousTurnResults function logic to determine whether the previous 2 turns ended with a strike or spare (WIP)" />
     <MESSAGE value="Changed the logic for getTurnResult to store the result of each roll. This will be used to correctly calculate the total of previous turn results with a strike or spare." />
     <MESSAGE value="Changed updatePreviousTurnResults function to use new logic for determining whether to update the totalScore for previous turns.&#10;&#10;- Added a isFinalScore boolean to the TurnResult data class which is used to indicate whether the final score for the turn has been calculated yet.&#10;- Added new checks to determine how many rolls were thrown in the previous turns to determine whether the second previous result throws need to be checked as well when calculating a strike turn score." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed updatePreviousTurnResults function to use new logic for determining whether to update the totalScore for previous turns.&#10;&#10;- Added a isFinalScore boolean to the TurnResult data class which is used to indicate whether the final score for the turn has been calculated yet.&#10;- Added new checks to determine how many rolls were thrown in the previous turns to determine whether the second previous result throws need to be checked as well when calculating a strike turn score." />
+    <MESSAGE value="Gave the tests more descriptive names" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gave the tests more descriptive names" />
   </component>
 </project>
