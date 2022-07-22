@@ -2,14 +2,11 @@ data class TurnResult(
     var totalScore: Int,
     val rollScores: List<Int>,
     val isSpare: Boolean,
-    val isStrike: Boolean
+    val isStrike: Boolean,
+    var isFinalScore: Boolean
 )
 
 class Bowling {
-    companion object {
-        const val TOTAL_TURNS = 10
-    }
-
     fun game(turns: List<List<Any>>): Int {
         val turnResultsList = mutableListOf<TurnResult>()
 
@@ -57,7 +54,8 @@ class Bowling {
             totalScore = rollScores.sum(),
             rollScores = rollScores,
             isSpare = isSpare,
-            isStrike = isStrike
+            isStrike = isStrike,
+            isFinalScore = !(isSpare || isStrike)
         )
     }
 
@@ -67,19 +65,26 @@ class Bowling {
             val latestResult = turnResults[0]
             if (turnResults.size > 1) {
                 val previousResult = turnResults[1]
-                if (previousResult.isSpare || previousResult.isStrike) {
-                    turnResults[1].totalScore += latestResult.totalScore
-                    println("Previous result was a spare or strike")
+                if (previousResult.isSpare && !previousResult.isFinalScore) {
+                    turnResults[1].totalScore += latestResult.rollScores[0]
+                    turnResults[1].isFinalScore = true
+                }
+
+                if (previousResult.isStrike && !previousResult.isFinalScore) {
+                    if (latestResult.rollScores.size > 1) {
+                        turnResults[1].totalScore += (latestResult.rollScores[0] + latestResult.rollScores[1])
+                        turnResults[1].isFinalScore = true
+                    }
+                }
+
+                if (turnResults.size > 2) {
+                    val secondPreviousResult = turnResults[2]
+                    if (secondPreviousResult.isStrike && !secondPreviousResult.isFinalScore) {
+                        turnResults[2].totalScore += (previousResult.rollScores[0] + latestResult.rollScores[0])
+                        turnResults[2].isFinalScore = true
+                    }
                 }
             }
-            if (turnResults.size > 2) {
-                val secondPreviousResult = turnResults[2]
-                if (secondPreviousResult.isStrike) {
-                    turnResults[2].totalScore += latestResult.totalScore
-                    println("Second previous result was a strike")
-                }
-            }
-            println()
         }
         return updatedTurnResults
     }

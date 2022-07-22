@@ -51,20 +51,4 @@ fun main() {
         )
     )
     println("Third game score: $game3\n")
-
-    val game4 = bowling.game(
-        turns = listOf(
-            listOf(1, '/'),
-            listOf(2, '/'),
-            listOf(3, '/'),
-            listOf(4, '/'),
-            listOf(5, '/'),
-            listOf(6, '/'),
-            listOf(7, '/'),
-            listOf(8, 1),
-            listOf(9, '/'),
-            listOf('X', 3, 5)
-        )
-    )
-    println("Fourth game score: $game4\n")
 }
