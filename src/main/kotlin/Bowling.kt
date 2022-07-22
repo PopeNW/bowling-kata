@@ -8,6 +8,10 @@ data class TurnResult(
 
 class Bowling {
 
+    companion object {
+        const val TOTAL_PINS = 10
+    }
+
     fun game(turns: List<List<Any>>): Int {
 
         val turnResultsList = mutableListOf<TurnResult>()
@@ -32,14 +36,14 @@ class Bowling {
             when (roll) {
                 // Strike
                 'X' -> {
-                    rollScores.add(index, 10)
+                    rollScores.add(index, TOTAL_PINS)
                     isStrike = true
                 }
                 // Spare
                 '/' -> {
                     when (index) {
-                        1 -> rollScores.add(index, 10 - rollScores[0])
-                        2 -> rollScores.add(index, 10 - rollScores[1])
+                        1 -> rollScores.add(index, TOTAL_PINS - rollScores[0])
+                        2 -> rollScores.add(index, TOTAL_PINS - rollScores[1])
                     }
                     isSpare = true
                 }

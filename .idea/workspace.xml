@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="482c8557-4266-4eb7-8822-0286ed9a1d9a" name="Changes" comment="Added more test cases for strikes and spares">
-      <change afterPath="$PROJECT_DIR$/.idea/detekt.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Bowling.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Bowling.kt" afterDir="false" />
-    </list>
+    <list default="true" id="482c8557-4266-4eb7-8822-0286ed9a1d9a" name="Changes" comment="Refactored updatePreviousTurnResults function in Bowling.kt by splitting the code into functions updatePreviousResult and updateSecondPreviousResult." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,17 +44,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Gradle.BowlingTest (1)">
     <configuration name="BowlingTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -220,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658497772706</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Refactored updatePreviousTurnResults function in Bowling.kt by splitting the code into functions updatePreviousResult and updateSecondPreviousResult.">
+      <created>1658509589565</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1658509589565</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,6 +244,7 @@
     <MESSAGE value="Changed the logic for getTurnResult to store the result of each roll. This will be used to correctly calculate the total of previous turn results with a strike or spare." />
     <MESSAGE value="Changed updatePreviousTurnResults function to use new logic for determining whether to update the totalScore for previous turns.&#10;&#10;- Added a isFinalScore boolean to the TurnResult data class which is used to indicate whether the final score for the turn has been calculated yet.&#10;- Added new checks to determine how many rolls were thrown in the previous turns to determine whether the second previous result throws need to be checked as well when calculating a strike turn score." />
     <MESSAGE value="Gave the tests more descriptive names" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gave the tests more descriptive names" />
+    <MESSAGE value="Refactored updatePreviousTurnResults function in Bowling.kt by splitting the code into functions updatePreviousResult and updateSecondPreviousResult." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored updatePreviousTurnResults function in Bowling.kt by splitting the code into functions updatePreviousResult and updateSecondPreviousResult." />
   </component>
 </project>
