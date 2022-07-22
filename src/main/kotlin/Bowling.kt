@@ -7,7 +7,9 @@ data class TurnResult(
 )
 
 class Bowling {
+
     fun game(turns: List<List<Any>>): Int {
+
         val turnResultsList = mutableListOf<TurnResult>()
 
         for (turn in turns) {
@@ -17,9 +19,11 @@ class Bowling {
         }
 
         return calculateTotalGameScore(turnResultsList)
+
     }
 
     private fun getTurnResult(turn: List<Any>): TurnResult {
+
         val rollScores = mutableListOf<Int>()
         var isSpare = false
         var isStrike = false
@@ -57,39 +61,69 @@ class Bowling {
             isStrike = isStrike,
             isFinalScore = !(isSpare || isStrike)
         )
+
     }
 
     private fun updatePreviousTurnResults(turnResultsList: List<TurnResult>): MutableList<TurnResult> {
+
         val updatedTurnResults = turnResultsList as MutableList<TurnResult>
-        updatedTurnResults.reversed().let { turnResults ->
-            val latestResult = turnResults[0]
+
+        updatedTurnResults.asReversed().let { turnResults ->
             if (turnResults.size > 1) {
-                val previousResult = turnResults[1]
-                if (previousResult.isSpare && !previousResult.isFinalScore) {
-                    turnResults[1].totalScore += latestResult.rollScores[0]
-                    turnResults[1].isFinalScore = true
-                }
+                turnResults[1] = updatePreviousResultScore(
+                    previousResult = turnResults[1],
+                    latestResult = turnResults[0]
+                )
+            }
 
-                if (previousResult.isStrike && !previousResult.isFinalScore) {
-                    if (latestResult.rollScores.size > 1) {
-                        turnResults[1].totalScore += (latestResult.rollScores[0] + latestResult.rollScores[1])
-                        turnResults[1].isFinalScore = true
-                    }
-                }
-
-                if (turnResults.size > 2) {
-                    val secondPreviousResult = turnResults[2]
-                    if (secondPreviousResult.isStrike && !secondPreviousResult.isFinalScore) {
-                        turnResults[2].totalScore += (previousResult.rollScores[0] + latestResult.rollScores[0])
-                        turnResults[2].isFinalScore = true
-                    }
-                }
+            if (turnResults.size > 2) {
+                turnResults[2] = updateSecondPreviousResultScore(
+                    secondPreviousResult = turnResults[2],
+                    previousResult = turnResults[1],
+                    latestResult = turnResults[0]
+                )
             }
         }
+
         return updatedTurnResults
+
+    }
+
+    private fun updatePreviousResultScore(previousResult: TurnResult, latestResult: TurnResult): TurnResult {
+
+        if (previousResult.isSpare && !previousResult.isFinalScore) {
+            previousResult.totalScore += latestResult.rollScores[0]
+            previousResult.isFinalScore = true
+        }
+
+        if (previousResult.isStrike && !previousResult.isFinalScore) {
+            if (latestResult.rollScores.size > 1) {
+                previousResult.totalScore += latestResult.rollScores[0] + latestResult.rollScores[1]
+                previousResult.isFinalScore = true
+            }
+        }
+
+        return previousResult
+
+    }
+
+    private fun updateSecondPreviousResultScore(
+        secondPreviousResult: TurnResult,
+        previousResult: TurnResult,
+        latestResult: TurnResult
+    ): TurnResult {
+
+        if (secondPreviousResult.isStrike && !secondPreviousResult.isFinalScore) {
+            secondPreviousResult.totalScore += previousResult.rollScores[0] + latestResult.rollScores[0]
+            secondPreviousResult.isFinalScore = true
+        }
+
+        return secondPreviousResult
+
     }
 
     private fun calculateTotalGameScore(turnResultsList: List<TurnResult>): Int {
+
         var totalScore = 0
 
         for (turnResult in turnResultsList) {
@@ -97,5 +131,7 @@ class Bowling {
         }
 
         return totalScore
+
     }
+
 }
