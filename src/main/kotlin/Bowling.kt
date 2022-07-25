@@ -1,15 +1,9 @@
-data class TurnResult(
-    var totalScore: Int,
-    val rollScores: List<Int>,
-    val isSpare: Boolean,
-    val isStrike: Boolean,
-    var isFinalScore: Boolean
-)
-
 class Bowling {
 
     companion object {
+
         const val TOTAL_PINS = 10
+
     }
 
     fun game(turns: List<List<Any>>): Int {

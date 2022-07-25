@@ -1,4 +1,5 @@
 fun main() {
+
     val bowling = Bowling()
 
     // X X X X X X X X X X X X (12 rolls: 12 strikes) = 10 frames * 30 points = 300
@@ -51,4 +52,5 @@ fun main() {
         )
     )
     println("Third game score: $game3\n")
+
 }
